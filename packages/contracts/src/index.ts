@@ -46,14 +46,9 @@ export type ConnectionSchema = {
 };
 
 export type ConnectionCapabilities = {
-  listEndpoint: string;
-  createEndpoint: string;
-  testEndpoint?: string;
-  provider?: "plugin" | "shell";
-  pluginTestEndpoint?: string;
   summaryEndpoint?: string;
   schema: ConnectionSchema;
-  routeTemplate: string;
+  openConnectionPath: string;
 };
 
 export type ViewDefinition = {
