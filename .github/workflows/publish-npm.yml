@@ -1,8 +1,8 @@
 name: Publish Packages
 
 on:
-  push:
-    branches: ["master"]
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -29,26 +27,7 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Detect changed packages
-        id: changes
-        run: |
-          before="${{ github.event.before }}"
-          after="${{ github.sha }}"
-          if [ "$before" = "0000000000000000000000000000000000000000" ]; then
-            before="$(git rev-list --max-parents=0 HEAD)"
-          fi
-          changed=$(git diff --name-only "$before" "$after" | awk -F/ '$1=="packages"{print $2}' | sort -u | tr '\n' ' ')
-          echo "changed=$changed" >> "$GITHUB_OUTPUT"
-
       - name: Publish
-        run: |
-          if [ -z "${{ steps.changes.outputs.changed }}" ]; then
-            echo "No package changes detected."
-            exit 0
-          fi
-          for pkg in ${{ steps.changes.outputs.changed }}; do
-            echo "Publishing packages/$pkg"
-            pnpm --dir "packages/$pkg" publish --no-git-checks
-          done
+        run: pnpm -r publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
