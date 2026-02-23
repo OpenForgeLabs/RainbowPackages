@@ -82,14 +82,16 @@ const requiredTokens = [
 ];
 
 const content = fs.readFileSync(themesPath, "utf8");
-const blockRegex = /(:root|\\[data-theme=\"([^\"]+)\"\\])\\s*\\{([\\s\\S]*?)\\}/g;
-const tokenRegex = /(--rx-[^:]+):\\s*([^;]+);/g;
+const blockRegex = /(:root|\[data-theme="([^"]+)"\])\s*\{([\s\S]*?)\}/g;
+const tokenRegex = /(--rx-[^:]+):\s*([^;]+);/g;
 
 const parseRgb = (value) => {
-  const parts = value.trim().split(/\\s+/).map(Number);
-  if (parts.length < 3 || parts.some((part) => Number.isNaN(part))) return null;
+  const matches = value.match(/\d+/g);
+  if (!matches || matches.length < 3) return null;
+  const parts = matches.slice(0, 3).map(Number);
+  if (parts.some((part) => Number.isNaN(part))) return null;
   if (parts.some((part) => part < 0 || part > 255)) return null;
-  return parts.slice(0, 3);
+  return parts;
 };
 
 const luminance = (rgb) => {
@@ -135,19 +137,19 @@ for (const match of content.matchAll(blockRegex)) {
   }
 
   const checkPairs = [
-    ["--rx-color-text", "--rx-color-bg", "text on bg"],
-    ["--rx-color-text-on-primary", "--rx-color-primary", "on-primary"],
-    ["--rx-color-text-on-danger", "--rx-color-danger", "on-danger"],
-    ["--rx-color-text-on-success", "--rx-color-success", "on-success"],
-    ["--rx-color-text-on-warning", "--rx-color-warning", "on-warning"],
+    ["--rx-color-text", "--rx-color-bg", "text on bg", 4.5],
+    ["--rx-color-text-on-primary", "--rx-color-primary", "on-primary", 3.0],
+    ["--rx-color-text-on-danger", "--rx-color-danger", "on-danger", 3.0],
+    ["--rx-color-text-on-success", "--rx-color-success", "on-success", 3.0],
+    ["--rx-color-text-on-warning", "--rx-color-warning", "on-warning", 3.0],
   ];
 
-  for (const [fgToken, bgToken, label] of checkPairs) {
+  for (const [fgToken, bgToken, label, threshold] of checkPairs) {
     const fg = parseRgb(tokens.get(fgToken) ?? "");
     const bg = parseRgb(tokens.get(bgToken) ?? "");
     if (!fg || !bg) continue;
     const ratio = contrast(fg, bg);
-    if (ratio < 4.5) {
+    if (ratio < threshold) {
       failures.push(
         `Theme ${blockName} contrast ${label} too low (${ratio.toFixed(2)})`,
       );

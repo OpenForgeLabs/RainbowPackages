@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rainbow UI Theme Preview</title>
+    <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/semantics.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+        background: rgb(var(--rx-color-bg) / 1);
+        color: rgb(var(--rx-color-text) / 1);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: var(--rx-z-dropdown);
+        backdrop-filter: blur(12px);
+        background: rgb(var(--rx-color-bg) / 0.85);
+        border-bottom: 1px solid rgb(var(--rx-color-border-subtle) / 1);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .title {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: rgb(var(--rx-color-text-muted) / 1);
+        font-size: 14px;
+        margin-top: 6px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      select,
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: var(--rx-radius-md);
+        border: 1px solid rgb(var(--rx-color-border) / 1);
+        background: rgb(var(--rx-color-control) / 1);
+        color: rgb(var(--rx-color-text) / 1);
+        font-size: 14px;
+        outline: none;
+        transition: border-color var(--rx-motion-fast) var(--rx-ease-standard),
+          box-shadow var(--rx-motion-fast) var(--rx-ease-standard);
+      }
+
+      select:focus,
+      input:focus,
+      textarea:focus {
+        border-color: rgb(var(--rx-color-focus) / 1);
+        box-shadow: 0 0 0 3px rgb(var(--rx-color-ring) / 0.35);
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        padding: 16px;
+        border-radius: var(--rx-radius-lg);
+        border: 1px solid rgb(var(--rx-color-border) / 1);
+        background: rgb(var(--rx-color-surface) / 1);
+        box-shadow: var(--rx-shadow-sm);
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-size: 16px;
+        color: rgb(var(--rx-color-text) / 1);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        background: rgb(var(--rx-color-surface-2) / 1);
+        color: rgb(var(--rx-color-text-muted) / 1);
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 10px 14px;
+        border-radius: var(--rx-radius-md);
+        border: 1px solid transparent;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform var(--rx-motion-fast) var(--rx-ease-standard),
+          box-shadow var(--rx-motion-fast) var(--rx-ease-standard),
+          background var(--rx-motion-fast) var(--rx-ease-standard);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn-primary {
+        background: rgb(var(--rx-color-primary) / 1);
+        color: rgb(var(--rx-color-text-on-primary) / 1);
+      }
+
+      .btn-primary:hover {
+        background: rgb(var(--rx-color-primary-hover) / 1);
+      }
+
+      .btn-accent {
+        background: rgb(var(--rx-color-accent) / 1);
+        color: rgb(var(--rx-color-text-on-accent) / 1);
+      }
+
+      .btn-accent:hover {
+        background: rgb(var(--rx-color-accent-hover) / 1);
+      }
+
+      .btn-danger {
+        background: rgb(var(--rx-color-danger) / 1);
+        color: rgb(var(--rx-color-text-on-danger) / 1);
+      }
+
+      .btn-danger:hover {
+        background: rgb(var(--rx-color-danger-hover) / 1);
+      }
+
+      .btn-success {
+        background: rgb(var(--rx-color-success) / 1);
+        color: rgb(var(--rx-color-text-on-success) / 1);
+      }
+
+      .btn-success:hover {
+        background: rgb(var(--rx-color-success-hover) / 1);
+      }
+
+      .btn-warning {
+        background: rgb(var(--rx-color-warning) / 1);
+        color: rgb(var(--rx-color-text-on-warning) / 1);
+      }
+
+      .btn-warning:hover {
+        background: rgb(var(--rx-color-warning-hover) / 1);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: rgb(var(--rx-color-text) / 1);
+        border-color: rgb(var(--rx-color-border-strong) / 1);
+      }
+
+      .btn-outline:hover {
+        background: rgb(var(--rx-color-surface-2) / 1);
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        border-radius: var(--rx-radius-md);
+        border: 1px solid rgb(var(--rx-color-border-subtle) / 1);
+        background: rgb(var(--rx-color-surface-2) / 1);
+      }
+
+      .list-item span {
+        color: rgb(var(--rx-color-text-subtle) / 1);
+        font-size: 12px;
+      }
+
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .swatch {
+        border-radius: var(--rx-radius-md);
+        padding: 12px;
+        border: 1px solid rgb(var(--rx-color-border-subtle) / 1);
+        background: rgb(var(--rx-color-surface-2) / 1);
+      }
+
+      .swatch-color {
+        height: 36px;
+        border-radius: var(--rx-radius-sm);
+        margin-bottom: 8px;
+      }
+
+      .swatch label {
+        font-size: 11px;
+        color: rgb(var(--rx-color-text-muted) / 1);
+      }
+
+      .panel {
+        padding: 16px;
+        border-radius: var(--rx-radius-lg);
+        border: 1px solid rgb(var(--rx-color-border) / 1);
+        background: rgb(var(--rx-color-surface-3) / 1);
+      }
+
+      .panel h4 {
+        margin: 0 0 8px;
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 24px 0 40px;
+        color: rgb(var(--rx-color-text-muted) / 1);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container hero">
+        <div>
+          <div class="title">Rainbow UI Theme Preview</div>
+          <div class="subtitle">Balanced palettes · Tokens only · No hardcodes</div>
+        </div>
+        <div class="toolbar">
+          <label for="theme">Theme</label>
+          <select id="theme">
+            <option value="dracula">dracula</option>
+            <option value="nord">nord</option>
+            <option value="solarized-dark">solarized-dark</option>
+            <option value="gruvbox-dark">gruvbox-dark</option>
+            <option value="catppuccin-mocha">catppuccin-mocha</option>
+            <option value="one-dark">one-dark</option>
+            <option value="github-dark">github-dark</option>
+            <option value="tokyo-night">tokyo-night</option>
+            <option value="carbon-dark">carbon-dark</option>
+            <option value="high-contrast-dark">high-contrast-dark</option>
+            <option value="github-light">github-light</option>
+            <option value="solarized-light">solarized-light</option>
+            <option value="catppuccin-latte">catppuccin-latte</option>
+            <option value="notion-light">notion-light</option>
+            <option value="linear-light">linear-light</option>
+            <option value="carbon-light">carbon-light</option>
+            <option value="high-contrast-light">high-contrast-light</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="grid">
+        <section class="card">
+          <h3>Buttons</h3>
+          <div class="button-row">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-accent">Accent</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-outline">Outline</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Inputs</h3>
+          <div class="list">
+            <input type="text" placeholder="Search connections" />
+            <select>
+              <option>Redis</option>
+              <option>PostgreSQL</option>
+              <option>MongoDB</option>
+            </select>
+            <textarea rows="3" placeholder="Notes"></textarea>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Cards</h3>
+          <div class="panel">
+            <h4>Cluster Alpha</h4>
+            <p class="subtitle">Connected · 3 databases · 1.2k keys</p>
+            <div class="button-row">
+              <button class="btn btn-primary">Open</button>
+              <span class="badge">redis</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Lists</h3>
+          <div class="list">
+            <div class="list-item">
+              <strong>Cache</strong>
+              <span>redis</span>
+            </div>
+            <div class="list-item">
+              <strong>Queue</strong>
+              <span>rabbit</span>
+            </div>
+            <div class="list-item">
+              <strong>Storage</strong>
+              <span>blob</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="card" style="margin-top: 24px;">
+        <h3>Viz Tokens</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-1) / 1);"></div><label>viz-1</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-2) / 1);"></div><label>viz-2</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-3) / 1);"></div><label>viz-3</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-4) / 1);"></div><label>viz-4</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-5) / 1);"></div><label>viz-5</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-6) / 1);"></div><label>viz-6</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-7) / 1);"></div><label>viz-7</label></div>
+          <div class="swatch"><div class="swatch-color" style="background: rgb(var(--rx-color-viz-8) / 1);"></div><label>viz-8</label></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container">
+      Switch themes to preview component contrast and saturation balance.
+    </footer>
+
+    <script>
+      const selector = document.getElementById("theme");
+      const root = document.documentElement;
+
+      const setTheme = (value) => {
+        root.setAttribute("data-theme", value);
+        root.style.colorScheme = value.includes("light") ? "light" : "dark";
+      };
+
+      selector.addEventListener("change", (event) => {
+        setTheme(event.target.value);
+      });
+
+      setTheme(selector.value);
+    </script>
+  </body>
+</html>
