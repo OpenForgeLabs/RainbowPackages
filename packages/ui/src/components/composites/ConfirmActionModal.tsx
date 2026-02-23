@@ -40,8 +40,6 @@ export function ConfirmActionModal({
           </Button>
         </div>
       }
-    >
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </Modal>
+    />
   );
 }
