@@ -1,5 +1,11 @@
 # @openforgelabs/rainbow-ui
 
+## 1.0.2
+
+### Patch Changes
+
+- 1815363: Replace focus:ring-ring utilities with explicit ring color to align with Tailwind v4.
+
 ## 1.0.1
 
 ### Patch Changes
