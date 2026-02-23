@@ -1,23 +1,26 @@
 import type { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "action" | "navigate" | "confirm" | "secondary" | "ghost";
+  variant?: "primary" | "accent" | "success" | "warning" | "danger" | "secondary" | "ghost";
 };
 
 export function Button({ variant = "primary", className, ...props }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60";
-  const resolved = variant === "primary" ? "action" : variant;
+    "inline-flex items-center justify-center rounded-[var(--rx-radius-md)] border px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60";
   const styles =
-    resolved === "action"
-      ? "border-transparent bg-gradient-to-r from-action to-action-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-action-strong hover:to-confirm"
-      : resolved === "confirm"
-        ? "border-transparent bg-gradient-to-r from-confirm to-confirm-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-confirm-strong hover:to-action"
-        : resolved === "navigate"
-          ? "border-transparent bg-gradient-to-r from-navigate to-navigate-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-navigate-strong hover:to-action"
-          : resolved === "secondary"
-            ? "border-action/30 bg-action/10 text-action hover:border-action/60 hover:bg-action/20"
-            : "border-transparent bg-transparent text-action hover:bg-action/10";
+    variant === "primary"
+      ? "border-transparent bg-primary text-primary-foreground shadow-[var(--rx-shadow-sm)] hover:bg-primary-hover active:bg-primary-active"
+      : variant === "accent"
+        ? "border-transparent bg-accent text-accent-foreground shadow-[var(--rx-shadow-sm)] hover:bg-accent-hover active:bg-accent-active"
+        : variant === "success"
+          ? "border-transparent bg-success text-success-foreground shadow-[var(--rx-shadow-sm)] hover:bg-success-hover"
+          : variant === "warning"
+            ? "border-transparent bg-warning text-warning-foreground shadow-[var(--rx-shadow-sm)] hover:bg-warning-hover"
+            : variant === "danger"
+              ? "border-transparent bg-danger text-danger-foreground shadow-[var(--rx-shadow-sm)] hover:bg-danger-hover"
+              : variant === "secondary"
+                ? "border-border bg-surface-2 text-foreground hover:border-border-strong hover:bg-surface-3"
+                : "border-transparent bg-transparent text-foreground hover:bg-surface-2";
 
   return <button className={`${base} ${styles} ${className ?? ""}`} {...props} />;
 }

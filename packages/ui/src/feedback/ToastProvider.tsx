@@ -58,20 +58,20 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`pointer-events-auto relative rounded-lg border px-4 py-3 text-sm shadow-lg transition-all ${
+            className={`pointer-events-auto relative rounded-lg border px-4 py-3 text-sm shadow-[var(--rx-shadow-sm)] transition-all ${
               toast.variant === "success"
-                ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-100"
+                ? "border-success/40 bg-success/10 text-success"
                 : toast.variant === "error"
-                  ? "border-rose-500/40 bg-rose-500/10 text-rose-100"
-                  : "border-border-dark bg-surface-dark text-slate-100"
+                  ? "border-danger/40 bg-danger/10 text-danger"
+                  : "border-border bg-surface text-foreground"
             }`}
           >
             <div className="font-semibold">{toast.title}</div>
             {toast.message ? (
-              <div className="mt-1 text-xs text-slate-200">{toast.message}</div>
+              <div className="mt-1 text-xs text-muted-foreground">{toast.message}</div>
             ) : null}
             <button
-              className="absolute right-2 top-2 rounded p-1 text-slate-300 hover:text-white"
+              className="absolute right-2 top-2 rounded p-1 text-muted-foreground hover:text-foreground"
               type="button"
               onClick={() =>
                 setToasts((current) => current.filter((item) => item.id !== toast.id))

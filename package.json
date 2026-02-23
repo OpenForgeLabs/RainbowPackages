@@ -5,6 +5,14 @@
   "scripts": {
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "changeset publish",
+    "check:styles": "node scripts/check-no-hardcoded-colors.mjs",
+    "validate:themes": "node scripts/validate-themes.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
   }
 }

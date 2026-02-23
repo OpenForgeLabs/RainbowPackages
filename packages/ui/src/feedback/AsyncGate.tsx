@@ -10,7 +10,7 @@ type AsyncGateProps = {
 export function AsyncGate({ isLoading, error, empty, children }: AsyncGateProps) {
   if (isLoading) {
     return (
-      <div className="flex min-h-[200px] items-center justify-center text-sm text-slate-300">
+      <div className="flex min-h-[200px] items-center justify-center text-sm text-muted-foreground">
         Loading...
       </div>
     );
@@ -18,7 +18,7 @@ export function AsyncGate({ isLoading, error, empty, children }: AsyncGateProps)
 
   if (error) {
     return (
-      <div className="rounded-lg border border-border-dark bg-surface-dark/60 p-6 text-sm text-rose-300">
+      <div className="rounded-[var(--rx-radius-md)] border border-border bg-surface/60 p-6 text-sm text-danger">
         {error}
       </div>
     );
@@ -26,7 +26,7 @@ export function AsyncGate({ isLoading, error, empty, children }: AsyncGateProps)
 
   if (empty) {
     return (
-      <div className="rounded-lg border border-border-dark bg-surface-dark/60 p-6 text-sm text-slate-300">
+      <div className="rounded-[var(--rx-radius-md)] border border-border bg-surface/60 p-6 text-sm text-muted-foreground">
         Nothing to show yet.
       </div>
     );

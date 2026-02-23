@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from "react";
 
 type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "action" | "navigate" | "confirm" | "danger" | "ghost" | "secondary";
+  variant?: "primary" | "accent" | "success" | "warning" | "danger" | "ghost" | "secondary";
   size?: "sm" | "md";
 };
 
@@ -13,19 +13,21 @@ export function IconButton({
 }: IconButtonProps) {
   const sizeClass = size === "sm" ? "h-8 w-8 text-[16px]" : "h-10 w-10 text-[18px]";
   const base =
-    "inline-flex items-center justify-center rounded-lg border transition disabled:cursor-not-allowed disabled:opacity-60";
+    "inline-flex items-center justify-center rounded-[var(--rx-radius-md)] border transition disabled:cursor-not-allowed disabled:opacity-60";
   const styles =
-    variant === "action"
-      ? "border-transparent bg-gradient-to-r from-action to-action-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-action-strong hover:to-confirm"
-      : variant === "confirm"
-        ? "border-transparent bg-gradient-to-r from-confirm to-confirm-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-confirm-strong hover:to-action"
-        : variant === "navigate"
-          ? "border-transparent bg-gradient-to-r from-navigate to-navigate-strong text-white shadow-[0_10px_18px_rgba(15,23,42,0.35)] hover:from-navigate-strong hover:to-action"
-          : variant === "danger"
-            ? "border-danger/40 bg-danger/10 text-danger hover:border-danger/70 hover:bg-danger/20"
-            : variant === "ghost"
-              ? "border-transparent bg-transparent text-action hover:bg-action/10"
-              : "border-action/30 bg-action/10 text-action hover:border-action/60 hover:bg-action/20";
+    variant === "primary"
+      ? "border-transparent bg-primary text-primary-foreground shadow-[var(--rx-shadow-xs)] hover:bg-primary-hover active:bg-primary-active"
+      : variant === "accent"
+        ? "border-transparent bg-accent text-accent-foreground shadow-[var(--rx-shadow-xs)] hover:bg-accent-hover active:bg-accent-active"
+        : variant === "success"
+          ? "border-transparent bg-success text-success-foreground shadow-[var(--rx-shadow-xs)] hover:bg-success-hover"
+          : variant === "warning"
+            ? "border-transparent bg-warning text-warning-foreground shadow-[var(--rx-shadow-xs)] hover:bg-warning-hover"
+            : variant === "danger"
+              ? "border-danger/40 bg-danger/10 text-danger hover:border-danger/70 hover:bg-danger/20"
+              : variant === "ghost"
+                ? "border-transparent bg-transparent text-foreground hover:bg-surface-2"
+                : "border-border bg-surface-2 text-foreground hover:border-border-strong hover:bg-surface-3";
 
   return (
     <button className={`${base} ${sizeClass} ${styles} ${className ?? ""}`} {...props} />

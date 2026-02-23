@@ -10,12 +10,12 @@ type FormFieldProps = {
 export function FormField({ label, helperText, error, children }: FormFieldProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-medium text-slate-200">{label}</label>
+      <label className="text-sm font-medium text-foreground">{label}</label>
       {children}
       {helperText ? (
-        <span className="text-xs text-slate-400">{helperText}</span>
+        <span className="text-xs text-muted-foreground">{helperText}</span>
       ) : null}
-      {error ? <span className="text-xs text-rose-300">{error}</span> : null}
+      {error ? <span className="text-xs text-danger">{error}</span> : null}
     </div>
   );
 }

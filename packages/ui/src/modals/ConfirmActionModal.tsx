@@ -7,7 +7,7 @@ type ConfirmActionModalProps = {
   description: string;
   confirmLabel?: string;
   cancelLabel?: string;
-  confirmVariant?: "confirm" | "action" | "ghost";
+  confirmVariant?: "primary" | "danger" | "secondary";
   isLoading?: boolean;
   onCancel: () => void;
   onConfirm: () => void;
@@ -19,7 +19,7 @@ export function ConfirmActionModal({
   description,
   confirmLabel = "Confirm",
   cancelLabel = "Cancel",
-  confirmVariant = "confirm",
+  confirmVariant = "primary",
   isLoading,
   onCancel,
   onConfirm,
@@ -40,7 +40,7 @@ export function ConfirmActionModal({
         </div>
       }
     >
-      <p className="text-sm text-slate-300">{description}</p>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </Modal>
   );
 }

@@ -7,7 +7,7 @@ export function Table(props: HTMLAttributes<HTMLTableElement>) {
 export function TableHead(props: HTMLAttributes<HTMLTableSectionElement>) {
   return (
     <thead
-      className={`sticky top-0 border-b border-border-dark bg-background text-[10px] font-bold uppercase tracking-wider text-slate-500 ${
+      className={`sticky top-0 border-b border-border bg-background text-[10px] font-bold uppercase tracking-wider text-subtle ${
         props.className ?? ""
       }`}
       {...props}
@@ -22,7 +22,7 @@ export function TableBody(props: HTMLAttributes<HTMLTableSectionElement>) {
 }
 
 export function TableRow(props: HTMLAttributes<HTMLTableRowElement>) {
-  return <tr className={`transition-colors hover:bg-surface-dark/60 ${props.className ?? ""}`} {...props} />;
+  return <tr className={`transition-colors hover:bg-surface-2/60 ${props.className ?? ""}`} {...props} />;
 }
 
 export function TableHeaderCell(props: HTMLAttributes<HTMLTableCellElement>) {

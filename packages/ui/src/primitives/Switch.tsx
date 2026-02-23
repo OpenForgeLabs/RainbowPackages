@@ -19,19 +19,19 @@ export function Switch({ checked, onCheckedChange, label, className, ...props }:
       <span
         className={`relative inline-flex h-6 w-11 items-center rounded-full border transition ${
           checked
-            ? "border-confirm/50 bg-confirm/20"
-            : "border-border-dark bg-control"
+            ? "border-success/50 bg-success/20"
+            : "border-border bg-control"
         }`}
       >
         <span
           className={`absolute left-0.5 top-0.5 h-5 w-5 rounded-full transition ${
             checked
-              ? "translate-x-5 bg-confirm"
-              : "translate-x-0 bg-slate-500"
+              ? "translate-x-5 bg-success"
+              : "translate-x-0 bg-border-strong"
           }`}
         />
       </span>
-      {label ? <span className="text-slate-200">{label}</span> : null}
+      {label ? <span className="text-foreground">{label}</span> : null}
     </button>
   );
 }

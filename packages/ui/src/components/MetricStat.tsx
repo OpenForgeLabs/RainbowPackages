@@ -7,12 +7,12 @@ type MetricStatProps = {
 export function MetricStat({ label, value, className }: MetricStatProps) {
   return (
     <div
-      className={`rounded-lg border border-border-dark/70 bg-background/40 p-2 ${className ?? ""}`}
+      className={`rounded-[var(--rx-radius-md)] border border-border-subtle/70 bg-surface/40 p-2 ${className ?? ""}`}
     >
-      <p className="mb-1 text-[10px] font-bold uppercase tracking-tighter text-slate-500">
+      <p className="mb-1 text-[10px] font-bold uppercase tracking-tighter text-subtle">
         {label}
       </p>
-      <p className="text-sm font-semibold text-slate-100">{value}</p>
+      <p className="text-sm font-semibold text-foreground">{value}</p>
     </div>
   );
 }

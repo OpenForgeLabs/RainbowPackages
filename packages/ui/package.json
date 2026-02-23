@@ -5,7 +5,8 @@
   "types": "src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./styles/theme.css": "./styles/theme.css",
+    "./styles/themes.css": "./styles/themes.css",
+    "./styles/semantics.css": "./styles/semantics.css",
     "./tailwind-preset": "./tailwind-preset.ts"
   },
   "sideEffects": [

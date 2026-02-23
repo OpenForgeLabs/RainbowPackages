@@ -17,14 +17,14 @@ export function EmptyState({
   icon,
 }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border-dark/70 bg-background/40 px-6 py-10 text-center">
-      <div className="text-2xl text-slate-400">{icon}</div>
-      <div className="text-sm font-semibold text-slate-100">{title}</div>
+    <div className="flex flex-col items-center justify-center gap-3 rounded-[var(--rx-radius-lg)] border border-dashed border-border-subtle/70 bg-surface/40 px-6 py-10 text-center">
+      <div className="text-2xl text-muted-foreground">{icon}</div>
+      <div className="text-sm font-semibold text-foreground">{title}</div>
       {description ? (
-        <p className="max-w-sm text-xs text-slate-400">{description}</p>
+        <p className="max-w-sm text-xs text-muted-foreground">{description}</p>
       ) : null}
       {actionLabel && onAction ? (
-        <Button variant="navigate" onClick={onAction}>
+        <Button variant="accent" onClick={onAction}>
           {actionLabel}
         </Button>
       ) : null}

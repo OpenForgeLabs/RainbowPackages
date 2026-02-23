@@ -13,7 +13,7 @@ export function Pagination({ hasPrevious, hasNext, onPrevious, onNext }: Paginat
       <Button variant="secondary" onClick={onPrevious} disabled={!hasPrevious}>
         Prev
       </Button>
-      <Button variant="navigate" onClick={onNext} disabled={!hasNext}>
+      <Button variant="accent" onClick={onNext} disabled={!hasNext}>
         Next
       </Button>
     </div>
