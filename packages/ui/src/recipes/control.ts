@@ -4,7 +4,7 @@ export type ControlSize = "sm" | "md" | "lg";
 export type ControlState = "default" | "invalid";
 
 export const controlRecipe = recipe({
-  base: "ui-focus w-full rounded-[var(--rx-radius-md)] border bg-control text-foreground placeholder:text-subtle disabled:cursor-not-allowed disabled:opacity-60",
+  base: "ui-focus rounded-[var(--rx-radius-md)] border bg-control text-foreground placeholder:text-subtle disabled:cursor-not-allowed disabled:opacity-60",
   variants: {
     size: {
       sm: "h-8 px-2 text-xs",

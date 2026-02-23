@@ -44,9 +44,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading ? <InlineSpinner className="h-4 w-4" aria-hidden="true" /> : leftIcon}
-      <span>{children}</span>
-      {!isLoading ? rightIcon : null}
+      {isLoading ? (
+        <InlineSpinner className="h-4 w-4" aria-hidden="true" />
+      ) : leftIcon ? (
+        <span
+          aria-hidden="true"
+          className="inline-flex items-center justify-center leading-none [&_.material-symbols-outlined]:leading-none"
+        >
+          {leftIcon}
+        </span>
+      ) : null}
+      <span className="inline-flex items-center">{children}</span>
+      {!isLoading && rightIcon ? (
+        <span
+          aria-hidden="true"
+          className="inline-flex items-center justify-center leading-none [&_.material-symbols-outlined]:leading-none"
+        >
+          {rightIcon}
+        </span>
+      ) : null}
     </button>
   );
 });

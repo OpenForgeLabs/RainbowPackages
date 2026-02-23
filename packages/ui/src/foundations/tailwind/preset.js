@@ -1,4 +1,24 @@
 const preset = {
+  safelist: [
+    {
+      pattern:
+        /^(bg|text|border)-(background|surface|surface-2|surface-3|control|control-hover|control-active|foreground|muted|muted-foreground|subtle|primary|primary-hover|primary-active|primary-foreground|accent|accent-hover|accent-active|accent-foreground|success|success-hover|success-foreground|warning|warning-hover|warning-foreground|danger|danger-hover|danger-foreground|info|border|border-subtle|border-strong|divider|ring|focus|viz-1|viz-2|viz-3|viz-4|viz-5|viz-6|viz-7|viz-8|viz-positive|viz-negative|viz-neutral)(\/(10|20|30|40|50|60|70|80))?$/,
+    },
+    {
+      pattern:
+        /^(hover|active|focus-within):(bg|text|border)-(background|surface|surface-2|surface-3|control|control-hover|control-active|foreground|muted|muted-foreground|subtle|primary|primary-hover|primary-active|primary-foreground|accent|accent-hover|accent-active|accent-foreground|success|success-hover|success-foreground|warning|warning-hover|warning-foreground|danger|danger-hover|danger-foreground|info|border|border-subtle|border-strong|divider|ring|focus|viz-1|viz-2|viz-3|viz-4|viz-5|viz-6|viz-7|viz-8|viz-positive|viz-negative|viz-neutral)(\/(10|20|30|40|50|60|70|80))?$/,
+    },
+    "ui-focus",
+    "rounded-[var(--rx-radius-sm)]",
+    "rounded-[var(--rx-radius-md)]",
+    "rounded-[var(--rx-radius-lg)]",
+    "shadow-[var(--rx-shadow-xs)]",
+    "shadow-[var(--rx-shadow-sm)]",
+    "shadow-[var(--rx-shadow-md)]",
+    "shadow-[var(--rx-shadow-lg)]",
+    "z-[var(--rx-z-modal)]",
+    "z-[var(--rx-z-toast)]",
+  ],
   theme: {
     extend: {
       colors: {
@@ -36,6 +56,17 @@ const preset = {
         danger: "rgb(var(--rx-color-danger) / <alpha-value>)",
         "danger-hover": "rgb(var(--rx-color-danger-hover) / <alpha-value>)",
         info: "rgb(var(--rx-color-info) / <alpha-value>)",
+        "viz-1": "rgb(var(--rx-color-viz-1) / <alpha-value>)",
+        "viz-2": "rgb(var(--rx-color-viz-2) / <alpha-value>)",
+        "viz-3": "rgb(var(--rx-color-viz-3) / <alpha-value>)",
+        "viz-4": "rgb(var(--rx-color-viz-4) / <alpha-value>)",
+        "viz-5": "rgb(var(--rx-color-viz-5) / <alpha-value>)",
+        "viz-6": "rgb(var(--rx-color-viz-6) / <alpha-value>)",
+        "viz-7": "rgb(var(--rx-color-viz-7) / <alpha-value>)",
+        "viz-8": "rgb(var(--rx-color-viz-8) / <alpha-value>)",
+        "viz-positive": "rgb(var(--rx-color-viz-positive) / <alpha-value>)",
+        "viz-negative": "rgb(var(--rx-color-viz-negative) / <alpha-value>)",
+        "viz-neutral": "rgb(var(--rx-color-viz-neutral) / <alpha-value>)",
       },
     },
   },

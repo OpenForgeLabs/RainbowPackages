@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef, type ForwardedRef } from "react";
+import { forwardRef, useMemo, useRef, type ForwardedRef, type ReactElement } from "react";
 import { cn } from "../../utils/cn";
 
 export type SegmentedItem<T extends string> = {
@@ -91,6 +91,14 @@ export const SegmentedControl = forwardRef(function SegmentedControlInner<
                 event.preventDefault();
                 move(-1);
               }
+              if (event.key === "ArrowDown") {
+                event.preventDefault();
+                move(1);
+              }
+              if (event.key === "ArrowUp") {
+                event.preventDefault();
+                move(-1);
+              }
             }}
             className={cn(
               "ui-focus rounded-[var(--rx-radius-sm)] border font-bold uppercase tracking-widest transition",
@@ -108,4 +116,4 @@ export const SegmentedControl = forwardRef(function SegmentedControlInner<
   );
 }) as <T extends string>(
   props: SegmentedControlProps<T> & { ref?: ForwardedRef<HTMLDivElement> },
-) => JSX.Element;
+) => ReactElement;

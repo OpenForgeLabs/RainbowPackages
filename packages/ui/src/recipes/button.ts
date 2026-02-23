@@ -11,7 +11,7 @@ export type ButtonTone =
 export type ButtonSize = "sm" | "md" | "lg";
 
 export const buttonRecipe = recipe({
-  base: "ui-focus inline-flex items-center justify-center gap-2 rounded-[var(--rx-radius-md)] border font-semibold transition disabled:cursor-not-allowed disabled:opacity-60",
+  base: "ui-focus inline-flex items-center justify-center gap-2 rounded-[var(--rx-radius-md)] border font-semibold transition disabled:cursor-not-allowed disabled:opacity-60 [&_.material-symbols-outlined]:align-middle [&_.material-symbols-outlined]:leading-none",
   variants: {
     variant: {
       solid: "",

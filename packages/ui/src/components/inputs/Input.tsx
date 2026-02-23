@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <input
       ref={ref}
-      className={cn(controlRecipe({ size, state }), className)}
+      className={cn(controlRecipe({ size, state }), "w-full", className)}
       aria-invalid={ariaInvalid}
       {...props}
     />

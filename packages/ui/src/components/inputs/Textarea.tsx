@@ -27,7 +27,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         ref={ref}
-        className={cn(controlRecipe({ size, state }), SIZE_CLASS[size], "py-2", className)}
+        className={cn(controlRecipe({ size, state }), "w-full", SIZE_CLASS[size], "py-2", className)}
         aria-invalid={ariaInvalid}
         {...props}
       />

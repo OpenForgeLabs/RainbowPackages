@@ -1,7 +1,12 @@
-import type { HTMLAttributes } from "react";
+import type {
+  HTMLAttributes,
+  TableHTMLAttributes,
+  ThHTMLAttributes,
+  TdHTMLAttributes,
+} from "react";
 import { cn } from "../../utils/cn";
 
-export function Table(props: HTMLAttributes<HTMLTableElement>) {
+export function Table(props: TableHTMLAttributes<HTMLTableElement>) {
   return <table className={cn("w-full text-left text-sm", props.className)} {...props} />;
 }
 
@@ -25,10 +30,10 @@ export function TableRow(props: HTMLAttributes<HTMLTableRowElement>) {
   return <tr className={cn("transition-colors hover:bg-surface-2/60", props.className)} {...props} />;
 }
 
-export function TableHeaderCell(props: HTMLAttributes<HTMLTableCellElement>) {
+export function TableHeaderCell(props: ThHTMLAttributes<HTMLTableCellElement>) {
   return <th className={cn("px-6 py-3", props.className)} {...props} />;
 }
 
-export function TableCell(props: HTMLAttributes<HTMLTableCellElement>) {
+export function TableCell(props: TdHTMLAttributes<HTMLTableCellElement>) {
   return <td className={cn("px-6 py-3", props.className)} {...props} />;
 }

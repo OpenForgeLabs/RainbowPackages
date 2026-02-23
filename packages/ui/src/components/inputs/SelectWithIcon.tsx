@@ -46,7 +46,10 @@ export const SelectWithIcon = forwardRef<HTMLSelectElement, SelectWithIconProps>
           wrapperClassName,
         )}
       >
-        <span aria-hidden="true" className="material-symbols-outlined text-base text-muted-foreground">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined shrink-0 leading-none text-base text-muted-foreground"
+        >
           {icon}
         </span>
         <select
@@ -54,7 +57,7 @@ export const SelectWithIcon = forwardRef<HTMLSelectElement, SelectWithIconProps>
           aria-label={ariaLabel}
           aria-invalid={ariaInvalid}
           className={cn(
-            "ui-focus w-full appearance-none border-0 bg-transparent p-0 text-sm text-foreground",
+            "ui-focus min-w-0 w-full appearance-none border-0 bg-transparent p-0 text-sm text-foreground",
             className,
           )}
           {...props}

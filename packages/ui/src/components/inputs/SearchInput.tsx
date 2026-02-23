@@ -36,18 +36,21 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
       <div
         className={cn(
           controlRecipe({ size, state }),
-          "flex items-center gap-2 focus-within:border-border-strong",
+          "flex w-full items-center gap-2 focus-within:border-border-strong",
           className,
         )}
       >
-        <span aria-hidden="true" className="material-symbols-outlined text-[18px] text-muted-foreground">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined shrink-0 leading-none text-[18px] text-muted-foreground"
+        >
           {icon}
         </span>
         <input
           ref={ref}
           aria-label={ariaLabel}
           aria-invalid={ariaInvalid}
-          className="w-full bg-transparent text-sm text-foreground placeholder:text-subtle focus:outline-none"
+          className="min-w-0 w-full bg-transparent text-sm text-foreground placeholder:text-subtle focus:outline-none"
           {...props}
         />
       </div>

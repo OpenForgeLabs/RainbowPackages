@@ -49,7 +49,10 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         aria-label={ariaLabel}
         {...props}
       >
-        <span aria-hidden="true" className="inline-flex items-center justify-center">
+        <span
+          aria-hidden="true"
+          className="inline-flex items-center justify-center leading-none [&_.material-symbols-outlined]:leading-none"
+        >
           {icon}
         </span>
         {label ? <span className="sr-only">{label}</span> : null}

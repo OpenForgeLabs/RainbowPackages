@@ -17,7 +17,7 @@ export function EmptyState({
   icon,
 }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 rounded-[var(--rx-radius-lg)] border border-dashed border-border-subtle/70 bg-surface/40 px-6 py-10 text-center">
+    <div className="flex flex-col items-center justify-center gap-3 rounded-[var(--rx-radius-lg)] border border-dashed border-border-subtle/80 bg-surface-2 px-6 py-10 text-center shadow-[var(--rx-shadow-xs)]">
       <div className="text-2xl text-muted-foreground">{icon}</div>
       <div className="text-sm font-semibold text-foreground">{title}</div>
       {description ? <p className="max-w-sm text-xs text-muted-foreground">{description}</p> : null}
