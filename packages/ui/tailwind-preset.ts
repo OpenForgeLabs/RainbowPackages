@@ -53,6 +53,9 @@ const preset: Config = {
         "viz-7": "rgb(var(--rx-color-viz-7) / <alpha-value>)",
         "viz-8": "rgb(var(--rx-color-viz-8) / <alpha-value>)",
       },
+      ringColor: {
+        ring: "rgb(var(--rx-color-ring) / <alpha-value>)",
+      },
     },
   },
 };
