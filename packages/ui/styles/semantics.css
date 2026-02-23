@@ -1,21 +1,35 @@
-@layer components {
-  .ui-focus {
-    @apply focus:outline-none focus:ring-2 focus:ring-[color:rgb(var(--rx-color-ring)/0.4)] focus:ring-offset-0;
-  }
+.ui-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--rx-color-ring) / 0.4);
+}
 
-  .ui-surface {
-    @apply rounded-[var(--rx-radius-lg)] border border-border bg-surface text-foreground shadow-[var(--rx-shadow-sm)];
-  }
+.ui-surface {
+  border-radius: var(--rx-radius-lg);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-surface) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+  box-shadow: var(--rx-shadow-sm);
+}
 
-  .ui-surface-2 {
-    @apply rounded-[var(--rx-radius-lg)] border border-border bg-surface-2 text-foreground shadow-[var(--rx-shadow-xs)];
-  }
+.ui-surface-2 {
+  border-radius: var(--rx-radius-lg);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-surface-2) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+  box-shadow: var(--rx-shadow-xs);
+}
 
-  .ui-control {
-    @apply rounded-[var(--rx-radius-md)] border border-border bg-control text-foreground placeholder:text-muted-foreground;
-  }
+.ui-control {
+  border-radius: var(--rx-radius-md);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-control) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+}
 
-  .ui-divider {
-    @apply border-border-subtle;
-  }
+.ui-control::placeholder {
+  color: rgb(var(--rx-color-text-muted) / 1);
+}
+
+.ui-divider {
+  border-color: rgb(var(--rx-color-border-subtle) / 1);
 }

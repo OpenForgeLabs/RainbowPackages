@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const preset: Config = {
+const preset = {
   theme: {
     extend: {
       colors: {

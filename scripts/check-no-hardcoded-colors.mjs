@@ -11,6 +11,7 @@ const disallowed = [
   /\btext-(zinc|slate|neutral|gray|stone|blue|emerald|amber|pink|violet)-/g,
   /\bbg-(zinc|slate|neutral|gray|stone|blue|emerald|amber|pink|violet)-/g,
   /\bborder-(zinc|slate|neutral|gray|stone|blue|emerald|amber|pink|violet)-/g,
+  /\bring-ring(\/[0-9.]+)?/g,
   /#(?:[0-9a-fA-F]{3,8})/g,
 ];
 

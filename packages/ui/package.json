@@ -7,7 +7,7 @@
     ".": "./src/index.ts",
     "./styles/themes.css": "./styles/themes.css",
     "./styles/semantics.css": "./styles/semantics.css",
-    "./tailwind-preset": "./tailwind-preset.ts"
+    "./tailwind-preset": "./tailwind-preset.mjs"
   },
   "sideEffects": [
     "*.css"
