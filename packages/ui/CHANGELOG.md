@@ -1,5 +1,11 @@
 # @openforgelabs/rainbow-ui
 
+## 1.0.3
+
+### Patch Changes
+
+- 6c22125: Replace focus:ring-ring utilities with explicit ring color and remove @apply usage in semantics styles for Tailwind v4.
+
 ## 1.0.2
 
 ### Patch Changes
