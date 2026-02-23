@@ -5,7 +5,9 @@ import {
   useId,
   useImperativeHandle,
   useRef,
+  useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "../../utils/cn";
 
 export type ModalProps = {
@@ -26,10 +28,15 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   ref,
 ) {
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const [mounted, setMounted] = useState(false);
   const titleId = useId();
   const descriptionId = useId();
 
   useImperativeHandle(ref, () => panelRef.current as HTMLDivElement);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -95,13 +102,13 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
     };
   }, [open, onClose]);
 
-  if (!open) {
+  if (!open || !mounted) {
     return null;
   }
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[var(--rx-z-modal)] flex items-center justify-center bg-background/80 p-4 sm:p-6"
+      className="ui-modal-overlay"
       role="presentation"
       onClick={(event) => {
         if (event.target === event.currentTarget) {
@@ -116,19 +123,16 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
         aria-labelledby={titleId}
         aria-describedby={description ? descriptionId : undefined}
         tabIndex={-1}
-        className={cn(
-          "ui-focus flex max-h-[90dvh] w-full max-w-xl flex-col overflow-hidden rounded-[var(--rx-radius-lg)] border border-border bg-surface shadow-[var(--rx-shadow-lg)]",
-          className,
-        )}
+        className={cn("ui-focus ui-modal-panel", className)}
       >
-        <div className="border-b border-border px-6 py-4">
-          <div className="flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <h2 id={titleId} className="text-lg font-semibold text-foreground">
+        <div className="ui-modal-header">
+          <div className="ui-modal-header-row">
+            <div className="ui-modal-title-wrap">
+              <h2 id={titleId} className="ui-modal-title">
                 {title}
               </h2>
               {description ? (
-                <p id={descriptionId} className="mt-1 text-sm text-muted-foreground">
+                <p id={descriptionId} className="ui-modal-description">
                   {description}
                 </p>
               ) : null}
@@ -136,7 +140,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
             <button
               type="button"
               onClick={onClose}
-              className="ui-focus inline-flex h-8 w-8 items-center justify-center rounded-[var(--rx-radius-md)] border border-border bg-surface-2 text-muted-foreground hover:border-border-strong hover:text-foreground"
+              className="ui-focus ui-modal-close"
               aria-label="Close dialog"
             >
               <span aria-hidden="true">x</span>
@@ -144,10 +148,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
           </div>
         </div>
 
-        <div className="overflow-y-auto px-6 py-5 text-foreground">{children}</div>
+        <div className="ui-modal-body">{children}</div>
 
-        {footer ? <div className="border-t border-border px-6 py-4">{footer}</div> : null}
+        {footer ? <div className="ui-modal-footer">{footer}</div> : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 });
