@@ -6,8 +6,8 @@
 Shared packages powering the Rainbow ecosystem.
 
 This repo contains the reusable building blocks used by:
-- `RainbowExplorer` (shell host)
-- `rainbow-redis` (Redis plugin)
+- [`RainbowExplorer`](https://github.com/OpenForgeLabs/RainbowExplorer) (shell host)
+- [`RainbowRedis`](https://github.com/OpenForgeLabs/RainbowRedis) (Redis plugin)
 
 ## What is here
 - `@openforgelabs/rainbow-ui`: design system (tokens, recipes, a11y components).
@@ -34,17 +34,13 @@ pnpm changeset
 ```
 
 ## Ecosystem
-- Shell host: `../RainbowExplorer`
-- Redis plugin: `../rainbow-redis`
+- Shell host: https://github.com/OpenForgeLabs/RainbowExplorer
+- Redis plugin: https://github.com/OpenForgeLabs/RainbowRedis
 
 ## Licensing
-This project is **source-available** under the PolyForm Noncommercial 1.0.0 license.
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
-That means:
-- Free use for personal, educational, and internal non-commercial scenarios.
-- Commercial use or resale is not allowed without a separate commercial agreement.
-
-See `LICENSE` for details.
+See the full license text in `LICENSE`.
 
 ## Support
 If this software saves you time, donations are welcome:
