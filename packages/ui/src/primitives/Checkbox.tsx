@@ -8,7 +8,7 @@ export function Checkbox({ className, label, ...props }: CheckboxProps) {
   const checkbox = (
     <input
       type="checkbox"
-      className={`size-4 rounded border-border bg-control text-primary focus:ring-2 focus:ring-ring/40 ${
+      className={`size-4 rounded border-border bg-control text-primary focus:ring-2 focus:ring-[color:rgb(var(--rx-color-ring)/0.4)] ${
         className ?? ""
       }`}
       {...props}
