@@ -1,5 +1,14 @@
 # @openforgelabs/rainbow-ui
 
+## 2.0.4
+
+### Patch Changes
+
+- f780bd5: Fix duplicated description text in `ConfirmActionModal`.
+
+  - Remove duplicate description rendering from modal body.
+  - Keep a single source of description content in the modal header.
+
 ## 2.0.3
 
 ### Patch Changes
