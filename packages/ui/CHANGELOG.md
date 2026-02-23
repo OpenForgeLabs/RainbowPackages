@@ -1,5 +1,11 @@
 # @openforgelabs/rainbow-ui
 
+## 1.1.0
+
+### Minor Changes
+
+- 8474d6e: Update theme palettes and preview for Rainbow UI.
+
 ## 1.0.3
 
 ### Patch Changes
