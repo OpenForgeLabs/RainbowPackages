@@ -1,26 +1,40 @@
-export { Button } from "./primitives/Button";
-export { Badge } from "./primitives/Badge";
-export { Checkbox } from "./primitives/Checkbox";
-export { IconButton } from "./primitives/IconButton";
-export { Input } from "./primitives/Input";
-export { Select } from "./primitives/Select";
-export { SelectWithIcon } from "./primitives/SelectWithIcon";
-export { SegmentedControl } from "./primitives/SegmentedControl";
-export { SearchInput } from "./primitives/SearchInput";
-export { Switch } from "./primitives/Switch";
-export { Textarea } from "./primitives/Textarea";
-export { Card } from "./components/Card";
-export { EmptyState } from "./components/EmptyState";
-export { FormField } from "./components/FormField";
-export { MetricStat } from "./components/MetricStat";
-export { Modal } from "./components/Modal";
-export { Pagination } from "./components/Pagination";
-export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "./components/Table";
-export { Toolbar } from "./components/Toolbar";
-export { AsyncGate } from "./feedback/AsyncGate";
-export { InlineSpinner } from "./feedback/InlineSpinner";
-export { ToastProvider, useToast } from "./feedback/ToastProvider";
-export { toastBus } from "./feedback/toastBus";
-export { ConfirmActionModal } from "./modals/ConfirmActionModal";
-export { JsonSyntaxTextarea } from "./inputs/JsonSyntaxTextarea";
-export { HostedThemeBridge } from "./host/HostedThemeBridge";
+export { Button } from "./components/button/Button";
+export { IconButton } from "./components/button/IconButton";
+
+export { Input } from "./components/inputs/Input";
+export { Textarea } from "./components/inputs/Textarea";
+export { Select } from "./components/inputs/Select";
+export { SearchInput } from "./components/inputs/SearchInput";
+export { SelectWithIcon } from "./components/inputs/SelectWithIcon";
+export { JsonSyntaxTextarea } from "./components/inputs/JsonSyntaxTextarea";
+
+export { Badge } from "./components/Badge";
+export { Checkbox } from "./components/controls/Checkbox";
+export { Switch } from "./components/controls/Switch";
+export { SegmentedControl } from "./components/controls/SegmentedControl";
+
+export { Modal } from "./components/modal/Modal";
+
+export {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+} from "./components/table/Table";
+
+export { ToastProvider, useToast } from "./components/feedback/ToastProvider";
+export { InlineSpinner } from "./components/feedback/InlineSpinner";
+export { AsyncGate } from "./components/feedback/AsyncGate";
+export { toastBus } from "./components/feedback/toastBus";
+
+export { Card } from "./components/surface/Card";
+
+export { ConfirmActionModal } from "./components/composites/ConfirmActionModal";
+export { FormField } from "./components/composites/FormField";
+export { Pagination } from "./components/composites/Pagination";
+export { EmptyState } from "./components/composites/EmptyState";
+export { MetricStat } from "./components/composites/MetricStat";
+
+export { HostedThemeBridge } from "./integrations/HostedThemeBridge";

@@ -1,0 +1,35 @@
+.ui-focus:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--rx-color-ring) / 0.4);
+}
+
+.ui-surface {
+  border-radius: var(--rx-radius-lg);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-surface) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+  box-shadow: var(--rx-shadow-sm);
+}
+
+.ui-surface-2 {
+  border-radius: var(--rx-radius-lg);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-surface-2) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+  box-shadow: var(--rx-shadow-xs);
+}
+
+.ui-control {
+  border-radius: var(--rx-radius-md);
+  border: 1px solid rgb(var(--rx-color-border) / 1);
+  background: rgb(var(--rx-color-control) / 1);
+  color: rgb(var(--rx-color-text) / 1);
+}
+
+.ui-control::placeholder {
+  color: rgb(var(--rx-color-text-muted) / 1);
+}
+
+.ui-divider {
+  border-color: rgb(var(--rx-color-border-subtle) / 1);
+}
