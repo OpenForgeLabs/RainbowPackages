@@ -1,5 +1,11 @@
 # @openforgelabs/rainbow-ui
 
+## 1.0.1
+
+### Patch Changes
+
+- 0f30f13: Fix tailwind preset ringColor so `focus:ring-ring` utilities compile correctly.
+
 ## 1.0.0
 
 ### Major Changes
