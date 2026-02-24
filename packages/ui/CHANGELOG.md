@@ -1,5 +1,18 @@
 # @openforgelabs/rainbow-ui
 
+## 2.0.5
+
+### Patch Changes
+
+- 42fc40f: Fix modal and switch UX regressions in `rainbow-ui`.
+
+  - Fix `ConfirmActionModal` to pass `children` to `Modal`, resolving TypeScript errors with `ModalProps`.
+  - Improve `Switch` visual behavior across themes:
+    - Keep track background neutral when active.
+    - Center thumb vertically in all states.
+    - Improve active thumb contrast and right-edge spacing.
+    - Add clearer disabled interaction styling.
+
 ## 2.0.4
 
 ### Patch Changes
