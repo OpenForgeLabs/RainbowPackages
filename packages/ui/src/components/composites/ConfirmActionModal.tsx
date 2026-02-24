@@ -40,6 +40,8 @@ export function ConfirmActionModal({
           </Button>
         </div>
       }
-    />
+    >
+      {null}
+    </Modal>
   );
 }
