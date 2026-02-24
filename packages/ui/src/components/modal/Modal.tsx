@@ -4,6 +4,7 @@ import {
   useEffect,
   useId,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -28,6 +29,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   ref,
 ) {
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const onCloseRef = useRef(onClose);
   const [mounted, setMounted] = useState(false);
   const titleId = useId();
   const descriptionId = useId();
@@ -37,6 +39,18 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  const getFocusable = useMemo(
+    () => (panel: HTMLDivElement) =>
+      Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+        (node) => !node.hasAttribute("disabled"),
+      ),
+    [],
+  );
 
   useEffect(() => {
     if (!open) {
@@ -52,18 +66,17 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    const getFocusable = () =>
-      Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-        (node) => !node.hasAttribute("disabled"),
-      );
-
-    const initialFocusable = getFocusable();
-    (initialFocusable[0] ?? panel).focus();
+    const focusable = getFocusable(panel);
+    const initialFocusable =
+      focusable.find((node) => node.getAttribute("data-autofocus") === "true") ??
+      focusable.find((node) => !node.classList.contains("ui-modal-close")) ??
+      focusable[0];
+    (initialFocusable ?? panel).focus();
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -71,7 +84,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
         return;
       }
 
-      const focusable = getFocusable();
+      const focusable = getFocusable(panel);
       if (focusable.length === 0) {
         event.preventDefault();
         panel.focus();
@@ -100,7 +113,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
         previousActiveElement.focus();
       }
     };
-  }, [open, onClose]);
+  }, [open, getFocusable]);
 
   if (!open || !mounted) {
     return null;
