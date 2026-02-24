@@ -1,5 +1,11 @@
 # @openforgelabs/rainbow-ui
 
+## 2.0.6
+
+### Patch Changes
+
+- 446febf: Fix modal focus behavior so typing in inputs does not reset focus to the close button on re-render.
+
 ## 2.0.5
 
 ### Patch Changes
